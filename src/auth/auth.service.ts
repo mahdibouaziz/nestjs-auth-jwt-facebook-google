@@ -9,6 +9,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  // local
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.usersService.findOne(email);
     if (user && user.password === password) {
@@ -19,6 +20,7 @@ export class AuthService {
     return null;
   }
 
+  // jwt
   async login(user: any) {
     const payload = { email: user.email, sub: user._id };
     return {
@@ -26,6 +28,7 @@ export class AuthService {
     };
   }
 
+  // google
   googleLogin(req) {
     if (!req.user) {
       return 'No user from google';
@@ -36,4 +39,6 @@ export class AuthService {
       user: req.user,
     };
   }
+
+  // facebook
 }
