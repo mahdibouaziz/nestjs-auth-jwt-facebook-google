@@ -7,10 +7,10 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { FacebookAuthGuard } from './facebook-auth.guard';
-import { GoogleAuthGuard } from './google-auth.guard';
-import { JwtAuthGuard } from './jwt-auth.guard';
-import { LocalAuthGuard } from './local-auth.guard';
+import { FacebookAuthGuard } from './facebook/facebook-auth.guard';
+import { GoogleAuthGuard } from './google/google-auth.guard';
+import { JwtAuthGuard } from './jwt/jwt-auth.guard';
+import { LocalAuthGuard } from './local/local-auth.guard';
 
 @Controller('auth')
 export class AuthController {
