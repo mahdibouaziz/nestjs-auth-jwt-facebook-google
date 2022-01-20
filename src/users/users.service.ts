@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+// import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserDocument } from './entities/user.entity';
 // import * as mongoose from 'mongoose';
 
@@ -19,8 +19,8 @@ export class UsersService {
     return await this.userModel.find();
   }
 
-  async findOne(id: string): Promise<User> {
-    return await this.userModel.findById(id);
+  async findOne(email: string): Promise<User> {
+    return await this.userModel.findOne({ email });
   }
 
   // update(id: string, updateUserDto: UpdateUserDto) {
