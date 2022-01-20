@@ -2,6 +2,7 @@
 version: '3.8'
 services:
   mongodb:
+    restart: always
     image: mongo
     ports:
       - 27017:27017
@@ -14,6 +15,7 @@ services:
         target: /data/db
 
   mongo-express:
+    restart: always
     depends_on:
       - mongodb
     image: 'mongo-express'
